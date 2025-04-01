@@ -18,7 +18,9 @@ const api = {
 
   closeApp: () => ipcRenderer.invoke('closeApp'), // One-time check
 
-  minimizeApp: () => ipcRenderer.invoke('minimizeApp') // One-time check
+  minimizeApp: () => ipcRenderer.invoke('minimizeApp'), // One-time check
+
+  getVersion: (listener) => ipcRenderer.invoke('appVersion', listener)
 }
 
 // Use `contextBridge` APIs to expose Electron APIs to

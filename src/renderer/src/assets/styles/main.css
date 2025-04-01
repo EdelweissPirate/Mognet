@@ -43,7 +43,10 @@ h1 {
 
 h1 span {
   font-weight: bolder;
-  font-size: 1.2rem;
+  font-style: italic;
+  font-size: 0.8rem;
+  margin: 0;
+  padding: 0;
 }
 
 h2 {
@@ -57,7 +60,7 @@ h3 {
 }
 
 img {
-  max-width:100%;
+  max-width: 100%;
 }
 
 input {
@@ -85,7 +88,7 @@ form {
   width: 95%;
   height: 100%;
   justify-content: space-around;
-  padding: .25rem;
+  padding: 0.25rem;
 }
 
 form .form-element {
@@ -136,7 +139,7 @@ button {
 .btn {
   width: 90px !important;
   height: 38px !important;
-  
+
   margin: 0px !important;
   padding: 0px !important;
 }
@@ -355,7 +358,7 @@ button {
   color: var(--color-text);
   background-color: var(--color-1);
   align-items: center;
-  margin-bottom: .125rem;
+  margin-bottom: 0.125rem;
   text-align: left;
 }
 
@@ -363,7 +366,7 @@ button {
   font-size: x-small;
   cursor: default;
   padding: 5px 0px;
-  margin-bottom: .25rem;
+  margin-bottom: 0.25rem;
 }
 
 .outer {
@@ -372,7 +375,7 @@ button {
   align-items: center;
   align-content: center;
   background: var(--color-background-soft);
-  box-shadow: 
+  box-shadow:
     inset 2px 2px 2px var(--color-2),
     inset -2px -2px 2px var(--color-2);
   overflow: hidden;
@@ -387,13 +390,13 @@ button {
   justify-content: center;
   align-items: center;
   align-content: center;
-  width:  calc(100% - 10px);
+  width: calc(100% - 10px);
   height: calc(100% - 10px);
   background-color: var(--color-1);
   position: relative;
   margin: auto;
   overflow: hidden;
-  box-shadow: 
+  box-shadow:
     inset 2px 2px 2px rgba(242, 242, 242, 0.3),
     inset -2px -2px 2px rgba(22, 22, 22, 0.3);
   border-radius: 10px !important;
@@ -404,12 +407,12 @@ button {
 }
 
 .cctv-grain-holder {
-  opacity: 0.2; 
-  position: absolute; 
-  width: 100%; 
-  height: 100%; 
-  overflow: hidden; 
-  top: 0%; 
+  opacity: 0.2;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  top: 0%;
   z-index: 999;
 }
 
@@ -419,35 +422,35 @@ button {
   z-index: -100;
   background-size: cover;
   overflow: hidden;
-  background-clip:content-box;
+  background-clip: content-box;
 }
 
 .cctv-bars {
-  position: absolute; 
-  background-clip:content-box; 
-  overflow: hidden; 
-  top: 0%; 
-  z-index: 999; 
-  width:100%; 
-  height:100%; 
-  display: flex; 
-  flex-direction: column; 
+  position: absolute;
+  background-clip: content-box;
+  overflow: hidden;
+  top: 0%;
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
   justify-content: space-between;
 }
 
 .cctv-bar {
-  height: 6%; 
-  background-color: #000; 
-  padding: .25rem; 
+  height: 6%;
+  background-color: #000;
+  padding: 0.25rem;
   border-radius: 0px !important;
 }
 
 .cctv-video-holder {
-  position: absolute; 
-  width: 100%; 
-  height: 100%; 
-  overflow: hidden; 
-  top: 0%; 
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  top: 0%;
   z-index: 996;
 }
 
@@ -457,33 +460,33 @@ button {
   z-index: -100;
   background-size: cover;
   overflow: hidden;
-  background-clip:content-box;
+  background-clip: content-box;
 }
 
 .cctv-time {
-  font-size:x-small; 
-  text-shadow: none !important; 
-  position: absolute; 
-  z-index: 997; 
-  color: #f2f2f2; 
-  bottom: 5%; 
-  right: 5%; 
+  font-size: x-small;
+  text-shadow: none !important;
+  position: absolute;
+  z-index: 997;
+  color: #f2f2f2;
+  bottom: 5%;
+  right: 5%;
   padding: 0.25rem;
 }
 
 .cctv-placeholder {
-  position: absolute; 
-  background-clip:content-box; 
-  overflow: hidden; 
-  top: 0%; 
-  z-index: 998; 
-  width:100%; 
-  height:100%; 
-  display: flex; 
-  flex-direction: column; 
-  justify-content: center; 
-  align-items: center; 
-  background-color: #000; 
-  color: #f2f2f2; 
+  position: absolute;
+  background-clip: content-box;
+  overflow: hidden;
+  top: 0%;
+  z-index: 998;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+  color: #f2f2f2;
   font-size: small;
 }

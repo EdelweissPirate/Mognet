@@ -166,6 +166,10 @@ app.whenReady().then(() => {
     return fs.existsSync(data)
   }
 
+  ipcMain.handle('appVersion', async () => {
+    return app.getVersion()
+  })
+
   ipcMain.handle('checkDir', async (event, data) => {
     return await checkDir(data).then((result) => {
       return result
@@ -180,7 +184,7 @@ app.whenReady().then(() => {
   })
 
   ipcMain.handle('minimizeApp', async () => {
-    mainWindow.minimize();
+    mainWindow.minimize()
   })
   //
 

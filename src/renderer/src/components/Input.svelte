@@ -1,10 +1,10 @@
 <script>
-  import { onMount } from "svelte";
+  import { onMount } from 'svelte'
   import Icon from 'svelte-awesome'
   import check from 'svelte-awesome/icons/check'
   import times from 'svelte-awesome/icons/times'
   import clockO from 'svelte-awesome/icons/clockO'
-  import hand from '../assets/hand.png?url' 
+  import hand from '../assets/hand.png?url'
 
   import { dir_path, message, deploy_results, counters } from '../store.js'
   import { playSound } from '../sounds.js'
@@ -12,10 +12,9 @@
   // export let do_deploy
   // export let reset
   export let disabled_reset
-  
 
-  let inputDir;
-  let inputMsg;
+  let inputDir
+  let inputMsg
   let inputValueDir = $dir_path
   let inputValueMessage = $message
   let dirValid = false
@@ -25,51 +24,50 @@
   let iconDir = times
   let iconMess = times
 
-  let selections = [
-    "dir",
-    "msg"
-  ]
-  let selected_index = 0;
-  let selected = "dir"
+  let selections = ['dir', 'msg']
+  let selected_index = 0
+  let selected = 'dir'
 
   //
   async function changeSelection(event) {
-    if (event.key === "Tab") {
-      event.preventDefault();
+    if (event.key === 'Tab') {
+      event.preventDefault()
     }
 
-    if (event.key === "ArrowUp") {
+    if (event.key === 'ArrowUp') {
       selected_index--
-      playSound('moveSound');
-    } else if (event.key === "ArrowDown" || event.key === "Tab") {
-      selected_index++ 
-      playSound('moveSound');
+      playSound('moveSound')
+    } else if (event.key === 'ArrowDown' || event.key === 'Tab') {
+      selected_index++
+      playSound('moveSound')
     }
 
-    selected_index = 
-      selected_index > selections.length - 1 ? 
-        0 : selected_index < 0 ? 
-          selections.length - 1 : selected_index;
+    selected_index =
+      selected_index > selections.length - 1
+        ? 0
+        : selected_index < 0
+          ? selections.length - 1
+          : selected_index
 
     selected = selections[selected_index]
 
     switch (selected) {
-      case "dir":
-        inputDir?.focus();
-        break;
+      case 'dir':
+        inputDir?.focus()
+        break
 
-      case "msg":
-        inputMsg?.focus();
-        break;
+      case 'msg':
+        inputMsg?.focus()
+        break
     }
   }
 
   onMount(() => {
-    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-    audioContext.resume();
+    const audioContext = new (window.AudioContext || window.webkitAudioContext)()
+    audioContext.resume()
 
-    inputDir?.focus();
-  });
+    inputDir?.focus()
+  })
   //
 
   const handleChangeDir = async (e) => {
@@ -149,12 +147,10 @@
 <div class="flex h-50" style="justify-content: flex-start;">
   <div class="outer" style="height: 95%">
     <div class="inner">
-      
       <form class="center space-between">
-        
         <div class="form-element">
           <label for="inputSource">
-            {#if selected === "dir"}
+            {#if selected === 'dir'}
               <img src={hand} alt="hand icon" />
             {:else}
               📦
@@ -176,14 +172,15 @@
             <Icon data={iconDir} color={dirValid ? 'green' : 'red'} />
           </div>
         </div>
-    
+
         <div class="form-element">
           <label for="inputLabel">
-            {#if selected === "msg"}
+            {#if selected === 'msg'}
               <img src={hand} alt="hand icon" />
             {:else}
               🏷️
-            {/if}</label>
+            {/if}</label
+          >
           <input
             class="text-center"
             name="inputLabel"
@@ -200,9 +197,8 @@
             <Icon data={iconMess} color={iconMess === check ? 'green' : 'red'} />
           </div>
         </div>
-    
-        <div class="controls">
 
+        <div class="controls">
           <button
             class="btn"
             disabled={!dirValid || !(iconMess === check)}
@@ -212,21 +208,14 @@
               <p>DEPLOY</p>
             </div>
           </button>
-    
-          <button 
-            disabled={disabled_reset} 
-            class="btn" 
-            onclick={(e) => reset(e)}
-          >
+
+          <button disabled={disabled_reset} class="btn" onclick={(e) => reset(e)}>
             <div class="flex center row">
               <p>RESET</p>
             </div>
           </button>
-
         </div>
-
       </form>
-
     </div>
   </div>
 </div>

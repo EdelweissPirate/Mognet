@@ -28,7 +28,7 @@ Object.keys(sounds).forEach((sound) => {
 })
 
 sounds.music.loop = 1
-sounds.music.volume = 0.5
+sounds.music.volume = 0.3
 
 export function playSound(sound, callback) {
   sounds[sound].currentTime = 0

@@ -3,15 +3,23 @@
   import timesRectangle from 'svelte-awesome/icons/timesRectangle'
   import volumeUp from 'svelte-awesome/icons/volumeUp'
   import volumeOff from 'svelte-awesome/icons/volumeOff'
-  import windowMinimize from 'svelte-awesome/icons/windowMinimize';
-  
+  import windowMinimize from 'svelte-awesome/icons/windowMinimize'
+
   import { muted } from '../store.js'
   import { playSound, stopSound } from '../sounds'
+  import { onMount } from 'svelte'
+
+  let version
+
+  onMount(async () => {
+    version = await window.api.getVersion()
+    console.log(version)
+  })
 
   const handleClose = () => {
     stopSound('music')
-    playSound("cancel")
-  
+    playSound('cancel')
+
     setTimeout(() => {
       window.api.closeApp()
     }, 200)
@@ -19,8 +27,8 @@
 
   const handleMinimize = () => {
     stopSound('music')
-    playSound("done")
-  
+    playSound('done')
+
     setTimeout(() => {
       window.api.minimizeApp()
     }, 200)
@@ -29,10 +37,10 @@
   const handleMute = () => {
     console.log($muted)
     muted.update(() => {
-      const newMute = !$muted;
-      if(newMute) stopSound('music')
-      if(!newMute) playSound('music')
-      
+      const newMute = !$muted
+      if (newMute) stopSound('music')
+      if (!newMute) playSound('music')
+
       return newMute
     })
   }
@@ -43,11 +51,10 @@
   style="position:absolute; top:1%; height: 12vh; width: 99vw"
 >
   <div class="fill inner flex row w-fill center p-1" style="justify-content: space-between;">
-
     <div class="draggable"></div>
 
-    <div><h1><span>Mognet-Central</span></h1></div>
-    
+    <div><h1>Mognet-Central <span>{version}</span></h1></div>
+
     <div>
       <button onclick={handleMute} class="button-drag">
         {#if $muted}
@@ -62,7 +69,6 @@
       <button onclick={handleClose} class="button-drag">
         <Icon data={timesRectangle} color="#f2f2f2" scale="1.2" />
       </button>
-
     </div>
   </div>
 </header>

@@ -43,19 +43,13 @@
   <div class="inner">
     <!-- Grain -->
     <div class="cctv-grain-holder">
-      <video
-        preload
-        class="cctv-grain"
-        src={grainVideo}
-        autoplay
-        loop
-      >
+      <video preload class="cctv-grain" src={grainVideo} autoplay loop>
         <track kind="captions" />
       </video>
     </div>
 
     <!-- Time -->
-    <div class="cctv-time" >
+    <div class="cctv-time">
       <p style="width: 100%; font-family: 'Consolas' !important;">
         {hours + ':' + minutes + ':' + seconds + ' - '}
         {day + '/' + month + '/' + year}
@@ -71,13 +65,7 @@
     <!-- Feed -->
     {#if live}
       <div class="cctv-video-holder">
-        <video
-          class="cctv-video"
-          preload
-          src={feedVideo}
-          autoplay
-          loop
-        >
+        <video class="cctv-video" preload src={feedVideo} autoplay loop>
           <track kind="captions" />
         </video>
       </div>

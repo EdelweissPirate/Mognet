@@ -21,7 +21,7 @@
   --ev-button-alt-hover-border: transparent;
   --ev-button-alt-hover-text: var(--ev-c-text-1);
   --ev-button-alt-hover-bg: var(--ev-c-gray-2);
-  
+
   --color-1: #2a4079;
   --color-2: #f2f2f2;
 }
@@ -113,6 +113,6 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  
+
   border-radius: 10px !important;
 }
