@@ -6,14 +6,13 @@
   import windowMinimize from 'svelte-awesome/icons/windowMinimize'
 
   import { muted } from '../store.js'
-  import { playSound, stopSound } from '../sounds'
+  import { playSound, stopSound } from '../scripts/sounds.js'
   import { onMount } from 'svelte'
 
   let version
 
   onMount(async () => {
     version = await window.api.getVersion()
-    console.log(version)
   })
 
   const handleClose = () => {
@@ -35,7 +34,6 @@
   }
 
   const handleMute = () => {
-    console.log($muted)
     muted.update(() => {
       const newMute = !$muted
       if (newMute) stopSound('music')
@@ -46,14 +44,11 @@
   }
 </script>
 
-<header
-  class="flex row center space-between outer"
-  style="position:absolute; top:1%; height: 12vh; width: 99vw"
->
+<header class="flex row center space-between outer">
   <div class="fill inner flex row w-fill center p-1" style="justify-content: space-between;">
     <div class="draggable"></div>
 
-    <div><h1>Mognet-Central <span>{version}</span></h1></div>
+    <div><h1>Mognet-Central <span>v{version}</span></h1></div>
 
     <div>
       <button onclick={handleMute} class="button-drag">

@@ -1,13 +1,13 @@
-import Music from './assets/SFX/music_rotting_pizza.mp3?url'
-import Flute from './assets/SFX/mog_flute.mp3?url'
-import Kweh from './assets/SFX/Chocobo2.mp3?url'
-import Kupo from './assets/SFX/moogle_noise.mp3?url'
-import MoveSound from './assets/SFX/cursor-move.mp3?url'
-import Accept from './assets/SFX/Cursor - Accept.mp3?url'
-import Cancel from './assets/SFX/cursor-cancel.mp3?url'
-import Write from './assets/SFX/Purchase.mp3?url'
-import Done from './assets/SFX/Save Point.mp3?url'
-import BadSound from './assets/SFX/Cursor - Buzzer.mp3?url'
+import Music from '../assets/SFX/music_rotting_pizza.mp3?url'
+import Flute from '../assets/SFX/mog_flute.mp3?url'
+import Kweh from '../assets/SFX/Chocobo2.mp3?url'
+import Kupo from '../assets/SFX/moogle_noise.mp3?url'
+import MoveSound from '../assets/SFX/cursor-move.mp3?url'
+import Accept from '../assets/SFX/Cursor - Accept.mp3?url'
+import Cancel from '../assets/SFX/cursor-cancel.mp3?url'
+import Write from '../assets/SFX/Purchase.mp3?url'
+import Done from '../assets/SFX/Save Point.mp3?url'
+import BadSound from '../assets/SFX/Cursor - Buzzer.mp3?url'
 
 export const sounds = {
   music: new Audio(Music),

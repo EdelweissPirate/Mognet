@@ -3,11 +3,9 @@
   import check from 'svelte-awesome/icons/check'
   import times from 'svelte-awesome/icons/times'
 
-  export let result
+  import { truncateString } from '../scripts/utils.js'
 
-  function truncateString(str) {
-    return str.length > 20 ? str.slice(0, 20) + '...' : str
-  }
+  export let result
 </script>
 
 <div class="entry outer">

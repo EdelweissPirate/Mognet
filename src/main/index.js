@@ -1,4 +1,4 @@
-import { app, shell, BrowserWindow, ipcMain, Tray, Menu } from 'electron'
+import { app, shell, BrowserWindow, ipcMain, Tray, Menu, dialog } from 'electron'
 import path, { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import icon from '../../resources/icon.png?asset'
@@ -19,7 +19,6 @@ function createWindow() {
     frame: false,
     fullscreenable: false,
     autoHideMenuBar: true,
-    // icon: icon,
     ...(process.platform === 'linux' ? { icon } : {}),
     webPreferences: {
       nodeIntegration: false,
@@ -185,6 +184,16 @@ app.whenReady().then(() => {
 
   ipcMain.handle('minimizeApp', async () => {
     mainWindow.minimize()
+  })
+
+  ipcMain.handle('selectDir', async () => {
+    const properties = ['openDirectory']
+    const result = await dialog.showOpenDialog({ properties: properties })
+    if (result.canceled) {
+      return null
+    } else {
+      return result.filePaths[0]
+    }
   })
   //
 

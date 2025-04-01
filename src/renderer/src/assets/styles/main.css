@@ -26,13 +26,22 @@ code {
   font-size: 85%;
 }
 
-section {
+header {
+  position: absolute !important;
+  top: 1% !important;
+  height: 12vh !important;
+  width: 99vw !important;
+}
+
+.main {
   width: 99vw;
-  height: calc(97vh - 48px);
+  height: calc(95vh - 50px);
   position: absolute;
   top: 6%;
   margin: auto;
   background-color: var(--color-1);
+  display: flex;
+  flex-direction: column;
 }
 
 h1 {
@@ -82,6 +91,17 @@ input :not(:placeholder-shown) {
   border-radius: 10px !important;
 }
 
+.dir-btn {
+  width: 80%;
+  min-width: 196.26px;
+  max-width: 650px;
+  height: 50px;
+  max-height: 50px;
+  border-radius: 10px !important;
+  font-size: small;
+  color: var(--color-2);
+}
+
 form {
   display: flex;
   flex-direction: column;
@@ -127,6 +147,10 @@ button {
   background-color: transparent;
 }
 
+.padding-frame {
+  padding: 0.5rem 0.125rem !important;
+}
+
 #app {
   display: flex;
   align-items: center;
@@ -137,7 +161,7 @@ button {
 }
 
 .btn {
-  width: 90px !important;
+  width: 60px !important;
   height: 38px !important;
 
   margin: 0px !important;
@@ -288,12 +312,16 @@ button {
   height: 60%;
 }
 
-.p-1 {
-  padding: 1rem;
+.h-95 {
+  height: 95% !important;
 }
 
-.p-quarter {
-  padding: 0.25rem;
+.h {
+  height: var(--h, auto) !important;
+}
+
+.p-1 {
+  padding: 1rem;
 }
 
 .p-half {
@@ -367,6 +395,10 @@ button {
   cursor: default;
   padding: 5px 0px;
   margin-bottom: 0.25rem;
+}
+
+.entry:last-of-type {
+  margin-bottom: 0 !important;
 }
 
 .outer {
