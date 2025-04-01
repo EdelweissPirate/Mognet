@@ -16,7 +16,9 @@ const api = {
 
   onLoopDone: (callback) => ipcRenderer.on('deploy-done', (event, message) => callback(message)), // Listen for completion
 
-  closeApp: () => ipcRenderer.invoke('closeApp') // One-time check
+  closeApp: () => ipcRenderer.invoke('closeApp'), // One-time check
+
+  minimizeApp: () => ipcRenderer.invoke('minimizeApp') // One-time check
 }
 
 // Use `contextBridge` APIs to expose Electron APIs to

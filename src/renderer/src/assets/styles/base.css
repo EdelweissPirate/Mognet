@@ -21,9 +21,9 @@
   --ev-button-alt-hover-border: transparent;
   --ev-button-alt-hover-text: var(--ev-c-text-1);
   --ev-button-alt-hover-bg: var(--ev-c-gray-2);
-
-  --color-1: #f3e9d7;
-  --color-2: #e94c26;
+  
+  --color-1: #2a4079;
+  --color-2: #f2f2f2;
 }
 
 :root {
@@ -46,6 +46,13 @@
     url(./Rubik-VariableFont_wght.ttf) format('truetype');
 }
 
+@font-face {
+  font-family: 'Alexandria';
+  src:
+    local('Alexandria'),
+    url(./Alexandria.ttf) format('truetype');
+}
+
 *,
 *::before,
 *::after {
@@ -55,6 +62,7 @@
   font-weight: normal;
 
   font-family:
+    'Alexandria',
     'Consolas',
     Inter,
     -apple-system,
@@ -69,7 +77,11 @@
     'Helvetica Neue',
     sans-serif;
 
-  border-radius: 5px !important;
+  -moz-background-clip: padding-box !important;
+  -webkit-background-clip: padding-box !important;
+  background-clip: padding-box !important;
+  overflow: hidden;
+  text-shadow: 3px 3px var(--color-text-dark);
 }
 
 ul {
@@ -81,9 +93,10 @@ body {
   height: 100vh;
   min-height: 100vh;
   color: var(--color-text);
-  background: var(--color-background);
+  background: var(--color-background-soft);
   line-height: 1.6;
   font-family:
+    'Alexandria',
     'Consolas',
     Inter,
     -apple-system,
@@ -100,4 +113,6 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
+  border-radius: 10px !important;
 }

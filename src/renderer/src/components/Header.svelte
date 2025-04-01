@@ -1,19 +1,68 @@
 <script>
   import Icon from 'svelte-awesome'
-  import timesCircle from 'svelte-awesome/icons/timesCircle'
+  import timesRectangle from 'svelte-awesome/icons/timesRectangle'
+  import volumeUp from 'svelte-awesome/icons/volumeUp'
+  import volumeOff from 'svelte-awesome/icons/volumeOff'
+  import windowMinimize from 'svelte-awesome/icons/windowMinimize';
+  
+  import { muted } from '../store.js'
+  import { playSound, stopSound } from '../sounds'
 
   const handleClose = () => {
-    window.api.closeApp()
+    stopSound('music')
+    playSound("cancel")
+  
+    setTimeout(() => {
+      window.api.closeApp()
+    }, 200)
+  }
+
+  const handleMinimize = () => {
+    stopSound('music')
+    playSound("done")
+  
+    setTimeout(() => {
+      window.api.minimizeApp()
+    }, 200)
+  }
+
+  const handleMute = () => {
+    console.log($muted)
+    muted.update(() => {
+      const newMute = !$muted;
+      if(newMute) stopSound('music')
+      if(!newMute) playSound('music')
+      
+      return newMute
+    })
   }
 </script>
 
 <header
-  class="flex row w-fill center space-between p-1 bg-dark"
-  style="position:absolute; top:0%; height: 12vh; border-radius: 0px !important"
+  class="flex row center space-between outer"
+  style="position:absolute; top:1%; height: 12vh; width: 99vw"
 >
-  <div class="draggable"></div>
-  <div><h1><span>Mognet-Central</span></h1></div>
-  <button onclick={handleClose} class="button-drag">
-    <Icon data={timesCircle} color="#f3e9d7" scale="1.2" />
-  </button>
+  <div class="fill inner flex row w-fill center p-1" style="justify-content: space-between;">
+
+    <div class="draggable"></div>
+
+    <div><h1><span>Mognet-Central</span></h1></div>
+    
+    <div>
+      <button onclick={handleMute} class="button-drag">
+        {#if $muted}
+          <Icon data={volumeOff} color="#f2f2f2" scale="1.2" />
+        {:else}
+          <Icon data={volumeUp} color="#f2f2f2" scale="1.2" />
+        {/if}
+      </button>
+      <button onclick={handleMinimize} class="button-drag">
+        <Icon data={windowMinimize} color="#f2f2f2" scale="1.2" />
+      </button>
+      <button onclick={handleClose} class="button-drag">
+        <Icon data={timesRectangle} color="#f2f2f2" scale="1.2" />
+      </button>
+
+    </div>
+  </div>
 </header>

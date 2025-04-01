@@ -13,7 +13,7 @@ body {
 code {
   font-weight: 600;
   padding: 3px 5px;
-  border-radius: 2px;
+  /* border-radius: 2px; */
   background-color: var(--color-background-mute);
   font-family:
     ui-monospace,
@@ -27,27 +27,23 @@ code {
 }
 
 section {
-  width: 95vw;
-  height: calc(88vh - 20px);
+  width: 99vw;
+  height: calc(97vh - 48px);
   position: absolute;
-  top: 13%;
+  top: 6%;
   margin: auto;
+  background-color: var(--color-1);
 }
 
 h1 {
-  margin: 0px 10px;
-  font-family: 'Rubik', sans-serif;
   font-weight: bolder;
-  font-style: italic;
-  font-size: 1.8rem;
-  color: var(--color-text-alt);
+  font-size: 1.2rem;
+  color: var(--color-text);
 }
 
 h1 span {
-  font-family: 'Rubik', sans-serif;
   font-weight: bolder;
-  font-style: italic;
-  font-size: 1.8rem;
+  font-size: 1.2rem;
 }
 
 h2 {
@@ -60,13 +56,19 @@ h3 {
   margin-bottom: 0.5rem;
 }
 
+img {
+  max-width:100%;
+}
+
 input {
   width: 80%;
   max-width: 650px;
   padding: 0px 5px;
   height: 30px;
   max-height: 30px;
-  border: 1px solid var(--color-text);
+  border-radius: 10px !important;
+  text-shadow: none !important;
+  font-size: small;
 }
 
 input :not(:placeholder-shown) {
@@ -74,29 +76,16 @@ input :not(:placeholder-shown) {
   max-width: 650px;
   height: 30px;
   max-height: 30px;
-  border-radius: 0px;
-  border: 1px solid var(--color-text-dark);
-}
-
-button {
-  outline: none;
-  opacity: 1;
-  border-radius: 0px;
-  border-style: solid;
-  margin: 2px;
-  border-width: 0.1em;
-  cursor: pointer;
-  background-color: var(--color-background);
-  transition:
-    background-color 1s,
-    color 1s;
+  border-radius: 10px !important;
 }
 
 form {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 95%;
+  height: 100%;
   justify-content: space-around;
+  padding: .25rem;
 }
 
 form .form-element {
@@ -125,7 +114,14 @@ form .controls {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  margin-bottom: 1rem;
+}
+
+button {
+  outline: none;
+  opacity: 1;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
 }
 
 #app {
@@ -133,31 +129,26 @@ form .controls {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin-bottom: 20px;
   width: 100%;
   height: 100%;
 }
 
 .btn {
-  padding: 0.5rem;
+  width: 90px !important;
+  height: 38px !important;
+  
+  margin: 0px !important;
+  padding: 0px !important;
 }
 
 .btn:enabled {
-  opacity: 1;
-  background-color: var(--color-background);
-  color: var(--color-text);
-  border-color: var(--color-text);
-}
-
-.btn:hover {
-  color: var(--color-text-alt);
-  background-color: var(--color-background-alt);
+  color: rgba(255, 255, 255, 1);
+  text-shadow: 2px 2px #131313 !important;
 }
 
 .btn:disabled {
-  opacity: 0.5;
-  color: var(--color-text-dark);
-  background-color: var(--color-background);
+  color: rgba(255, 255, 255, 0.25);
+  text-shadow: none !important;
   cursor: default;
 }
 
@@ -200,11 +191,10 @@ form .controls {
 }
 
 .border {
-  border: 0.01em solid var(--color-text);
+  border: 5px double var(--color-text);
 }
 
 .border-dark {
-  border-radius: 0px;
   border-style: solid;
   margin-bottom: -0.1em;
   border-width: 0.1em;
@@ -283,6 +273,10 @@ form .controls {
   width: 90%;
 }
 
+.h-fill {
+  height: 100%;
+}
+
 .h-50 {
   height: 50%;
 }
@@ -343,16 +337,11 @@ form .controls {
 .scroll-box {
   height: 80%;
   max-height: 80%; /* Adjust height as needed */
-  overflow-y: auto;
+  overflow-y: auto !important;
   padding: 0px;
   width: 100%; /* Ensures it takes full width */
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none;
-  border-top: 1px solid var(--color-text-dark);
-  border-bottom: 1px solid var(--color-text-dark);
-  background-color: #fff;
-  border-top-right-radius: 0px !important;
-  border-top-left-radius: 0px !important;
 }
 
 .scroll-box::-webkit-scrollbar {
@@ -361,40 +350,140 @@ form .controls {
 
 .results {
   width: 100%;
-  height: 20%;
-  padding: 0.25rem;
+  padding: 0.25rem 0.25rem;
   font-size: x-small;
-  color: var(--color-text-dark);
-  background-color: #fff;
-  border: 1px solid var(--color-text-dark);
-  border-bottom-right-radius: 0px !important;
-  border-bottom-left-radius: 0px !important;
+  color: var(--color-text);
+  background-color: var(--color-1);
+  align-items: center;
+  margin-bottom: .125rem;
+  text-align: left;
 }
 
 .entry {
-  font-size: small;
-  color: var(--color-text-dark);
-  background-color: #fff;
+  font-size: x-small;
   cursor: default;
+  padding: 5px 0px;
+  margin-bottom: .25rem;
+}
+
+.outer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  background: var(--color-background-soft);
+  box-shadow: 
+    inset 2px 2px 2px var(--color-2),
+    inset -2px -2px 2px var(--color-2);
+  overflow: hidden;
+  position: relative;
+  border-radius: 10px !important;
+}
+
+.inner {
+  min-width: 0;
+  display: flex;
+  flex: 0 1 auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  width:  calc(100% - 10px);
+  height: calc(100% - 10px);
+  background-color: var(--color-1);
+  position: relative;
+  margin: auto;
+  overflow: hidden;
+  box-shadow: 
+    inset 2px 2px 2px rgba(242, 242, 242, 0.3),
+    inset -2px -2px 2px rgba(22, 22, 22, 0.3);
+  border-radius: 10px !important;
+}
+
+.no-radius {
   border-radius: 0px !important;
 }
 
-/* ========================= */
-@media (max-width: 720px) {
-  .text {
-    font-size: 20px;
-  }
+.cctv-grain-holder {
+  opacity: 0.2; 
+  position: absolute; 
+  width: 100%; 
+  height: 100%; 
+  overflow: hidden; 
+  top: 0%; 
+  z-index: 999;
 }
 
-@media (max-width: 620px) {
-  .versions {
-    display: none;
-  }
+.cctv-grain {
+  width: 100%;
+  height: 100%;
+  z-index: -100;
+  background-size: cover;
+  overflow: hidden;
+  background-clip:content-box;
 }
 
-@media (max-width: 350px) {
-  .tip,
-  .actions {
-    display: none;
-  }
+.cctv-bars {
+  position: absolute; 
+  background-clip:content-box; 
+  overflow: hidden; 
+  top: 0%; 
+  z-index: 999; 
+  width:100%; 
+  height:100%; 
+  display: flex; 
+  flex-direction: column; 
+  justify-content: space-between;
+}
+
+.cctv-bar {
+  height: 6%; 
+  background-color: #000; 
+  padding: .25rem; 
+  border-radius: 0px !important;
+}
+
+.cctv-video-holder {
+  position: absolute; 
+  width: 100%; 
+  height: 100%; 
+  overflow: hidden; 
+  top: 0%; 
+  z-index: 996;
+}
+
+.cctv-video {
+  width: 100%;
+  height: 100%;
+  z-index: -100;
+  background-size: cover;
+  overflow: hidden;
+  background-clip:content-box;
+}
+
+.cctv-time {
+  font-size:x-small; 
+  text-shadow: none !important; 
+  position: absolute; 
+  z-index: 997; 
+  color: #f2f2f2; 
+  bottom: 5%; 
+  right: 5%; 
+  padding: 0.25rem;
+}
+
+.cctv-placeholder {
+  position: absolute; 
+  background-clip:content-box; 
+  overflow: hidden; 
+  top: 0%; 
+  z-index: 998; 
+  width:100%; 
+  height:100%; 
+  display: flex; 
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center; 
+  background-color: #000; 
+  color: #f2f2f2; 
+  font-size: small;
 }

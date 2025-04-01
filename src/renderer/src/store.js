@@ -1,6 +1,6 @@
 import { writable } from 'svelte/store'
 
-export const muted = writable(true)
+export const muted = writable(false)
 
 export const dir_path = writable(null)
 export const message = writable(null)

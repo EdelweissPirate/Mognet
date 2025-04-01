@@ -34,7 +34,9 @@
 
     playSound('flute', () => {
       setTimeout(() => {
-        if (!muted) playSound('music')
+        if (!$muted) {
+          playSound('music')
+        }
       }, 1000)
     })
   })
@@ -42,13 +44,13 @@
 
 <Header />
 
-<section class="flex col">
-  <div class="flex row fill space-between">
-    <div class="flex col w-50 m-half">
+<section class="flex col outer">
+  <div class="inner" style="padding: 0.5rem 0.125rem;">
+    <div class="flex col w-50 m-half h-fill center space-between">
       <Input disabled_reset={$deploy_results.length <= 0} />
       <Cctv />
     </div>
-    <div class="flex col w-50 m-half">
+    <div class="flex col w-50 m-half h-fill">
       <Results />
     </div>
   </div>

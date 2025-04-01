@@ -12,8 +12,8 @@ let mainWindow
 function createWindow() {
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    width: 600,
-    height: 400,
+    width: 600 * 1.2,
+    height: 400 * 1.2,
     show: false,
     resizable: false,
     frame: false,
@@ -63,37 +63,37 @@ app.whenReady().then(() => {
   })
 
   //tray config
-  // const tray = new Tray(icon)
-  // let contextMenu = Menu.buildFromTemplate([
-  //   {
-  //     label: 'Restore',
-  //     click: () => {
-  //       mainWindow.show()
-  //       mainWindow.focus()
-  //       // mainWindow.setAlwaysOnTop(true);
-  //     }
-  //   },
-  //   {
-  //     label: 'Quit',
-  //     click: () => {
-  //       app.isQuiting = true
-  //       mainWindow.close()
-  //       app.quit()
-  //     }
-  //   }
-  // ])
-  // tray.setToolTip('Mognet')
-  // tray.setContextMenu(contextMenu)
-  // tray.on('right-click', () => {
-  //   tray.popUpContextMenu()
-  // })
-  // tray.on('click', () => {
-  //   mainWindow.show()
-  //   mainWindow.focus()
-  //   // mainWindow.setAlwaysOnTop(true);
-  //   // restore overlay icon when going back from tray
-  //   // setOverlayIcon(currentOverlayIcon);
-  // })
+  const tray = new Tray(icon)
+  let contextMenu = Menu.buildFromTemplate([
+    {
+      label: 'Restore',
+      click: () => {
+        mainWindow.show()
+        mainWindow.focus()
+        // mainWindow.setAlwaysOnTop(true);
+      }
+    },
+    {
+      label: 'Quit',
+      click: () => {
+        app.isQuiting = true
+        mainWindow.close()
+        app.quit()
+      }
+    }
+  ])
+  tray.setToolTip('Mognet-Central')
+  tray.setContextMenu(contextMenu)
+  tray.on('right-click', () => {
+    tray.popUpContextMenu()
+  })
+  tray.on('click', () => {
+    mainWindow.show()
+    mainWindow.focus()
+    // mainWindow.setAlwaysOnTop(true);
+    // restore overlay icon when going back from tray
+    // setOverlayIcon(currentOverlayIcon);
+  })
 
   // IPC
   async function getDirectories(directory) {
@@ -177,6 +177,10 @@ app.whenReady().then(() => {
     if (process.platform !== 'darwin') {
       app.quit()
     }
+  })
+
+  ipcMain.handle('minimizeApp', async () => {
+    mainWindow.minimize();
   })
   //
 
